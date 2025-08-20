@@ -1,6 +1,6 @@
 # base node image
 
-FROM node:21-bullseye-slim as base
+FROM node:24-bullseye-slim as base
 
 # set for base and all layer that inherit from it
 
