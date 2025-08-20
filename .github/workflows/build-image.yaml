@@ -1,0 +1,22 @@
+name: Docker Build and Push
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [nethermind]
+  pull_request:
+    branches: [nethermind]
+
+permissions:
+  id-token: write
+  attestations: write
+  contents: read
+
+jobs:
+  build_simple:
+    uses: NethermindEth/github-workflows/.github/workflows/docker-build-push-jfrog.yaml@v1.5.1
+    with:
+      group_name: "angkor"
+      image_name: "chainlink-push-engine"
+      push: ${{ github.event_name != 'pull_request' }}
+      ignore_trivy: true
