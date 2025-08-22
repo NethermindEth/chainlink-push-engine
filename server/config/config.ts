@@ -10,7 +10,7 @@ export const config: Config = (() => {
   try {
     return load(readFileSync(CONFIG_PATH, 'utf8')) as Config;
   } catch {
-    logger.warn('⚠️ No config file provided - proceeding with empty config.');
+    logger.warn(`⚠️ No config file provided in ${CONFIG_PATH} - proceeding with empty config.`);
     return {} as Config;
   }
 })();
